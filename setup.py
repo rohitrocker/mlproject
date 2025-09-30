@@ -1,14 +1,12 @@
 from setuptools import setup, find_packages
 from typing import List
 
-from typing import List
-
 def get_requirements(file_path: str) -> List[str]:  # ✅ Works everywhere
 
     requirements = []
     with open(file_path) as file:
            requirements = file.readlines()
-    requirements = [req.strip() for req in requirements if req.strip() and not req.startswith("#")]
+           requirements = [req.strip() for req in requirements if req.strip() and not req.startswith("#")]
 
 
 
