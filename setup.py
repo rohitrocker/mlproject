@@ -5,13 +5,13 @@ def get_requirements(file_path: str) -> List[str]:  # ✅ Works everywhere
 
     requirements = []
     with open(file_path) as file:
-           requirements = file.readlines()
-           requirements = [req.strip() for req in requirements if req.strip() and not req.startswith("#")]
+        requirements = file.readlines()
+        requirements = [req.strip() for req in requirements if req.strip() and not req.startswith("#")]
 
 
 
     if '-e .' in requirements:
-            requirements.remove('-e .')
+         requirements.remove('-e .')
     return requirements
 
 
