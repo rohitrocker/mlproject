@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Score Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Student Score Predictor</h1>
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+
+            <div class="form-group">
+                <label>Gender:</label>
+                <select name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="from-control">Race/Ethnicity:</label>
+                <select class="form_control" name="race_ethnicity" placeholder="Enter your Ethnicity" required>
+                    <option class="placeholder" selected disabled value="">select Ethnicity</option>
+                    <option value="group A">
+                        Group A
+                    </option>
+                    <option value="group B">
+                        Group B
+                    </option>
+                    <option value="group C">
+                        Group C
+                    </option>
+                    <option value="group D">
+                        Group D
+                    </option>
+                    <option value="group E">
+                        Group E
+                    </option>
+                </select>
+
+
+
+            </div>
+
+            <div class="form-group">
+                <label class="from-label">Parental Level of Education:</label>
+                <select class="from-control" name="parental_level_of_education" placeholder="Enter you Parent education" required>
+                    <option class="placeholder" selected disabled value="">Select parent Education</option>
+                    <option value="associated degree">
+                        associate's degree
+                    </option>
+                     <option value="bachelor's degree">
+                        bachelor's degree
+                    </option>
+                     <option value="high school">
+                        high school
+                    </option>
+                     <option value="master's degree">
+                        master's degree
+                    </option>
+                     <option value="some college">
+                        some college
+                    </option>
+                     <option value="some high college">
+                        some high school
+                    </option>
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <label>Lunch Type:</label>
+                <select name="lunch" required>
+                    <option value="standard">Standard</option>
+                    <option value="free/reduced">Free/Reduced</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Test Preparation Course:</label>
+                <select name="test_preparation_course" required>
+                    <option value="none">None</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="from-label">Writing Score out of 100 </label>
+                <input class = "form_control"type="number" name="reading_score"
+                    placeholder="Enter your reading  Score" min="0" max="100"/>
+            </div>
+
+            <div class="form-group">
+                <label class="from-label">Reading Score out of 100 </label>
+                <input class = "form_control"type="number" name="writing_score"
+                    placeholder="Enter your reading  Score" min="0" max="100"/>
+            </div>
+            <div class ="form-group">
+                <input class="btn btn-primary" type ="submit" value="predict your Maths Score" required />
+            </div>
+
+
+        </form>
+
+        {% if results is not none %}
+            <div class="result">
+                <h2>Predicted Math Score: {{ results }}</h2>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
